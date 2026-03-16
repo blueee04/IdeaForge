@@ -6,7 +6,7 @@ export const onboardingService = {
   async savePreferences(prefs: UserPreferences): Promise<void> {
     // Keep local storage for synchronous reads during app boot
     if (typeof window !== "undefined") {
-      localStorage.setItem("ideaforge_prefs", JSON.stringify(prefs));
+      localStorage.setItem("lesage_prefs", JSON.stringify(prefs));
     }
 
     // Also save to backend
@@ -19,12 +19,12 @@ export const onboardingService = {
 
   getPreferences(): UserPreferences | null {
     if (typeof window === "undefined") return null;
-    const stored = localStorage.getItem("ideaforge_prefs");
+    const stored = localStorage.getItem("lesage_prefs");
     return stored ? JSON.parse(stored) : null;
   },
 
   hasCompletedOnboarding(): boolean {
     if (typeof window === "undefined") return false;
-    return localStorage.getItem("ideaforge_prefs") !== null;
+    return localStorage.getItem("lesage_prefs") !== null;
   },
 };

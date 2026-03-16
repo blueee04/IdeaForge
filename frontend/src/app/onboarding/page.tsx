@@ -48,7 +48,7 @@ export default function OnboardingPage() {
       <div className="auth-container">
         <div className="auth-card" style={{ maxWidth: "600px" }}>
           <div className="auth-header">
-            <a href="/" className="logo">IdeaForge</a>
+            <a href="/" className="logo">Le Sage</a>
             <h1>Setup your profile</h1>
             <p>Tell us what you are looking for so we can tailor the AI agents to your goals.</p>
           </div>

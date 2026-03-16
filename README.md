@@ -1,10 +1,10 @@
-# IdeaForge
+# Le Sage
 
 AI powered platform that combines deep research automation, novelty based idea curation, and expert matchmaking into one intelligent system. It helps aspiring entrepreneurs go from "What should I build?" to "Here is what you should build, why it works, and who can help."
 
 ## Problem Statement
 
-Most startup ideas are built on intuition or generic AI outputs, leading to high failure rates and derivative products. Despite vast amounts of untapped innovation sitting in academic databases, founders lack the expertise to navigate technical papers, and researchers lack a path to commercialize their work. IdeaForge solves this by using multi-agent open-source AI models trained for specific fields and use cases to synthesize deep research into validated startup opportunities, ensuring every idea is backed by evidence rather than just optimism.
+Most startup ideas are built on intuition or generic AI outputs, leading to high failure rates and derivative products. Despite vast amounts of untapped innovation sitting in academic databases, founders lack the expertise to navigate technical papers, and researchers lack a path to commercialize their work. Le Sage solves this by using multi-agent open-source AI models trained for specific fields and use cases to synthesize deep research into validated startup opportunities, ensuring every idea is backed by evidence rather than just optimism.
 
 ## Tech Stack
 
@@ -33,7 +33,7 @@ Most startup ideas are built on intuition or generic AI outputs, leading to high
 ## Project Structure
 
 ```
-IdeaForge/
+Le Sage/
 ├── frontend/          # Next.js 15 application
 │   ├── src/
 │   │   ├── app/       # App Router pages

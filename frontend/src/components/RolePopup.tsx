@@ -45,7 +45,7 @@ export default function RolePopup({ onComplete }: RolePopupProps) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {step === 1 ? (
           <>
-            <h2>Welcome to IdeaForge</h2>
+            <h2>Welcome to Le Sage</h2>
             <p className="modal-subtitle">
               Let us personalize your experience. What best describes you?
             </p>

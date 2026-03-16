@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "IdeaForge AI"
+    PROJECT_NAME: str = "Le Sage AI"
     VERSION: str = "1.0.0"
     
     # Supabase Setup

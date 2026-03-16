@@ -63,7 +63,7 @@ export default function GenerateIdeasPage() {
       {/* Header */}
       <header className="header">
         <div className="header-inner">
-          <a href="/" className="logo">IdeaForge</a>
+          <a href="/" className="logo">Le Sage</a>
           <nav className="nav-links">
             <a href="/dashboard/seeker" className="nav-link">Dashboard</a>
             <a href="/generate" className="nav-link" style={{ color: "var(--text-primary)", fontWeight: 500 }}>Generate Ideas</a>

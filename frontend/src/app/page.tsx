@@ -26,7 +26,7 @@ export default function Home() {
       {/* Header */}
       <header className="header">
         <div className="header-inner">
-          <a href="/" className="logo">IdeaForge</a>
+          <a href="/" className="logo">Le Sage</a>
           <nav className="nav-links">
             <a href="#features" className="nav-link">Features</a>
             <a href="#how-it-works" className="nav-link">How It Works</a>
@@ -49,7 +49,7 @@ export default function Home() {
         </p>
         <div className="hero-actions">
           <a href="/login?signup=true" className="btn-primary" style={{ padding: "14px 32px", fontSize: "1rem" }}>
-            Get IdeaForge Free
+            Get Le Sage Free
             <IconArrowRight size={18} />
           </a>
           <a href="#how-it-works" className="btn-secondary" style={{ padding: "14px 32px", fontSize: "1rem" }}>
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="section" style={{ paddingTop: 0 }}>
           <div className="section-header">
             <h2>Everything you need to find your next big idea</h2>
-            <p>From deep research to expert connections, IdeaForge handles the heavy lifting so you can focus on building.</p>
+            <p>From deep research to expert connections, Le Sage handles the heavy lifting so you can focus on building.</p>
           </div>
           <div className="features-grid">
             <div className="feature-card">
@@ -240,7 +240,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <a href="/" className="logo">IdeaForge</a>
+            <a href="/" className="logo">Le Sage</a>
             <p>AI powered research automation for startup ideation and expert matchmaking.</p>
           </div>
           <div className="footer-col">
@@ -271,7 +271,7 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>2026 IdeaForge. All rights reserved.</span>
+          <span>2026 Le Sage. All rights reserved.</span>
           <span>Built with open source tools</span>
         </div>
       </footer>

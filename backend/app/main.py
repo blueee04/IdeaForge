@@ -7,14 +7,14 @@ from app.api.routers import ideas, experts, dashboard, onboarding
 app = FastAPI(
     title=settings.PROJECT_NAME,
     version=settings.VERSION,
-    description="IdeaForge AI API backend"
+    description="Le Sage AI API backend"
 )
 
 # Allow frontend to connect
 origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://ideaforge-ai.vercel.app", # Add production URL later
+    "https://lesage-ai.vercel.app", # Add production URL later
 ]
 
 app.add_middleware(
@@ -32,7 +32,7 @@ app.include_router(onboarding.router, prefix="/api/onboarding", tags=["onboardin
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to IdeaForge AI API"}
+    return {"message": "Welcome to Le Sage AI API"}
 
 @app.get("/health")
 def health_check():

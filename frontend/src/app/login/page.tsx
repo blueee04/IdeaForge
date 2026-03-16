@@ -67,7 +67,7 @@ function LoginForm() {
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
-            <a href="/" className="logo">IdeaForge</a>
+            <a href="/" className="logo">Le Sage</a>
             <h1>{mode === "login" ? "Welcome back" : "Create your account"}</h1>
             <p>
               {mode === "login"
