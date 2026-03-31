@@ -56,6 +56,7 @@ def generate_fallback_ideas(field: str, novelty_level: int) -> list[Idea]:
             marketPotential="High",
             feasibility="Medium",
             noveltyScore=novelty_level,
+            confidenceScore=70,
             field=field,
             researchCitations=["https://arxiv.org/abs/example"]
         )

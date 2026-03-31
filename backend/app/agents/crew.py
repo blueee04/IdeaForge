@@ -6,10 +6,19 @@ from app.core.config import settings
 def get_llm() -> LLM:
     """Initialize the LLM based on configuration."""
     if settings.LLM_PROVIDER == "huggingface":
-        # Requires HF_TOKEN in env
-        return LLM(model="huggingface/mistralai/Mistral-7B-Instruct-v0.2")
+        # Set HF_TOKEN env var for CrewAI/LiteLLM to pick up
+        if settings.HF_TOKEN:
+            os.environ["HF_TOKEN"] = settings.HF_TOKEN
+            os.environ["HUGGINGFACE_API_KEY"] = settings.HF_TOKEN
+        
+        # Using Mistral 7B Instruct - free tier, good for structured output
+        # Alternative models: meta-llama/Llama-3.2-3B-Instruct, microsoft/Phi-3-mini-4k-instruct
+        return LLM(
+            model="huggingface/mistralai/Mistral-7B-Instruct-v0.3",
+            api_key=settings.HF_TOKEN
+        )
     else:
-        # Default to Ollama
+        # Fallback to Ollama for local development
         return LLM(
             model="ollama/llama3.2",
             base_url=settings.OLLAMA_BASE_URL
@@ -77,10 +86,12 @@ def create_idea_generation_crew(field: str, novelty_level: int) -> Crew:
             '    "marketPotential": "High/Medium/Low with brief justification",\n'
             '    "feasibility": "High/Medium/Low with brief justification",\n'
             f'    "noveltyScore": {novelty_level},\n'
+            '    "confidenceScore": 75,\n'
             f'    "field": "{field}",\n'
             '    "researchCitations": ["URL 1", "URL 2"]\n'
             "  }\n"
-            "]"
+            "]\n"
+            "For confidenceScore: estimate 60-90 based on how well-supported the idea is by research (higher = more citations/evidence)."
         ),
         expected_output="A raw JSON array of 3 startup ideas matching the exact valid JSON schema requested.",
         agent=analyst

@@ -55,7 +55,7 @@ Connect with field-specific experts backed by research credentials (in developme
 **Backend**
 - FastAPI (Python 3.11+)
 - CrewAI for multi-agent orchestration
-- Ollama for local LLM inference (Llama 3.2, Mistral 7B)
+- HuggingFace Inference API (Mistral 7B) - free cloud LLM
 - SlowAPI for rate limiting
 
 **Data & Services**
@@ -99,7 +99,7 @@ Le-Sage/
 
 - Node.js 18+
 - Python 3.11+
-- Ollama (for local LLM)
+- HuggingFace account (free) for cloud LLM inference
 - Redis (optional, for distributed rate limiting)
 
 ### Installation
@@ -124,20 +124,27 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 # Semantic Scholar API (Required)
 SEMANTIC_SCHOLAR_API_KEY=your_api_key
 
-# LLM Provider
-LLM_PROVIDER=ollama
-OLLAMA_BASE_URL=http://localhost:11434
+# HuggingFace (Required for AI - free tier available)
+LLM_PROVIDER=huggingface
+HF_TOKEN=your_huggingface_token
 
 # Backend API
 NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
 ```
 
-**3. Install Ollama and pull models**
+**3. Set up HuggingFace (Required for AI)**
 
-```bash
-# Install Ollama from https://ollama.ai
-ollama pull llama3.2
-```
+HuggingFace provides free cloud-based LLM inference - no local GPU needed.
+
+1. Create a free account at https://huggingface.co/join
+2. Go to https://huggingface.co/settings/tokens
+3. Click "New token" → Name it "le-sage" → Select "Read" permission → Create
+4. Copy the token (starts with `hf_...`) and add to your `.env` as `HF_TOKEN`
+
+The free tier includes:
+- Unlimited requests to many models (rate limited)
+- Access to Mistral 7B, Llama, Phi-3, and more
+- No credit card required
 
 **4. Start the backend**
 
@@ -225,7 +232,7 @@ Built with open-source tools:
 - [Next.js](https://nextjs.org/)
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [CrewAI](https://www.crewai.com/)
-- [Ollama](https://ollama.ai/)
+- [HuggingFace](https://huggingface.co/)
 - [Supabase](https://supabase.com/)
 - [Semantic Scholar](https://www.semanticscholar.org/)
 
