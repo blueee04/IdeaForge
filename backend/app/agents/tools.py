@@ -5,8 +5,14 @@ from pydantic import Field
 import time
 import logging
 from app.core.config import settings
+from pydantic import BaseModel
+import logging
 
 logger = logging.getLogger(__name__)
+
+class SearchInput(BaseModel):
+    """Input schema for search tools."""
+    query: str = Field(..., description="Search query")
 
 # Simple in-memory throttle tracking
 _last_search_time = 0
@@ -19,6 +25,7 @@ _semantic_delay = 1.0  # Exactly 1 second between requests (API requirement)
 class WebSearchTool(BaseTool):
     name: str = "Web Search Tool"
     description: str = "Search the web for current market trends, competitors, and industry reports."
+    args_schema: type[BaseModel] = SearchInput
     
     def _run(self, query: str) -> str:
         """Execute the web search with rate limiting."""
@@ -46,6 +53,7 @@ class WebSearchTool(BaseTool):
 class AcademicSearchTool(BaseTool):
     name: str = "Academic Search Tool"
     description: str = "Search Semantic Scholar for academic papers, patents, and scientific research."
+    args_schema: type[BaseModel] = SearchInput
     
     def _run(self, query: str) -> str:
         """

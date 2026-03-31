@@ -11,16 +11,17 @@ def get_llm() -> LLM:
             os.environ["HF_TOKEN"] = settings.HF_TOKEN
             os.environ["HUGGINGFACE_API_KEY"] = settings.HF_TOKEN
         
-        # Using Mistral 7B Instruct - free tier, good for structured output
-        # Alternative models: meta-llama/Llama-3.2-3B-Instruct, microsoft/Phi-3-mini-4k-instruct
+        # Using Qwen2.5-7B-Instruct - free tier accessible without gate, good for structured output
+        # Alternative models: mistralai/Mistral-7B-Instruct-v0.3, microsoft/Phi-3-mini-4k-instruct
         return LLM(
-            model="huggingface/mistralai/Mistral-7B-Instruct-v0.3",
+            model="huggingface/Qwen/Qwen2.5-7B-Instruct",
             api_key=settings.HF_TOKEN
         )
     else:
         # Fallback to Ollama for local development
+        ollama_model = settings.OLLAMA_MODEL if hasattr(settings, 'OLLAMA_MODEL') else "deepseek-r1:8b"
         return LLM(
-            model="ollama/llama3.2",
+            model=f"ollama/{ollama_model}",
             base_url=settings.OLLAMA_BASE_URL
         )
 

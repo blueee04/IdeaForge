@@ -5,7 +5,7 @@ export interface Idea {
   field: string;
   noveltyScore: number;
   feasibilityScore?: number; // mapped from backend feasibility
-  confidenceScore: number;
+  confidenceScore?: number;
   citations?: Citation[];
   createdAt?: string;
   marketPotential?: string;
